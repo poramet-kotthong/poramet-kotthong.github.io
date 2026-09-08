@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[ชื่อของคุณ] - CS Student Portfolio</title>
+    <!-- Google Fonts: Prompt สำหรับภาษาไทยที่ดูทันสมัย -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome สำหรับ Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #1a472a; /* Dark Green */
+            --secondary-color: #2c5f2d;
+            --accent-color: #97bc62;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Prompt', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .lang-switch {
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 150px;
+            background-color: var(--bg-white);
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .hero-text h2 {
+            font-size: 1.8rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: var(--text-light);
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-placeholder {
+            width: 350px;
+            height: 350px;
+            background-color: var(--border-color);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
+        }
+
+        /* Quick Menu */
+        .quick-menu {
+            background-color: var(--bg-light);
+            padding: 40px 0;
+        }
+
+        .quick-menu-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .quick-card {
+            background: var(--bg-white);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quick-card:hover {
+            transform: translateY(-5px);
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .quick-card i {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .quick-card span {
+            font-weight: 500;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--bg-white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: 16px;
+        }
+
+        .about-info-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .info-item h4 {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .info-item p {
+            font-weight: 500;
+        }
+
+        /* Education Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 12px;
+            top: 5px;
+            width: 18px;
+            height: 18px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            border: 3px solid var(--bg-white);
+        }
+
+        .timeline-content {
+            background: var(--bg-white);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .timeline-date {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        /* Academic Performance */
+        .academic {
+            background-color: var(--bg-white);
+        }
+
+        .gpa-card {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .gpa-score {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+
+        .chart-placeholder {
+            width: 100%;
+            max-width: 800px;
+            height: 300px;
+            background-color: var(--bg-light);
+            margin: 0 auto;
+            border-radius: 12px;
+            border: 1px dashed var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: var(--bg-white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .skill-category h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--bg-light);
+            padding-bottom: 10px;
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .skill-bar-bg {
+            width: 100%;
+            height: 8px;
+            background-color: var(--bg-light);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-bar-fill {
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        /* Cards Grid (Experience, Activities, Projects, Certificates) */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .content-card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tech-tag {
+            background: var(--bg-light);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text-main);
+        }
+
+        /* Filter Buttons */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        /* Goals */
+        .goals-section {
+            background-color: var(--bg-white);
+        }
+        
+        .goals-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .goal-box {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 12px;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .goal-box ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin-top: 15px;
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .contact-card {
+            background: var(--bg-white);
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content, .about-grid, .skills-grid, .goals-grid {
+                grid-template-columns: 1fr;
+                flex-direction: column;
+            }
+            .image-placeholder {
+                width: 100%;
+                max-width: 350px;
+            }
+            .hero {
+                padding-top: 100px;
+            }
+            .quick-menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-white);
+                padding: 20px;
+                box-shadow: var(--shadow);
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            .about-info-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                [ชื่อ Logo / ชื่อย่อ]
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About Me</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <span class="lang-switch">TH / EN</span>
+                <i class="fas fa-bars hamburger" id="hamburgerBtn"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO BANNER -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h2>สวัสดีครับ/ค่ะ ผม/ดิฉัน</h2>
+                <h1>[ระบุชื่อ-นามสกุล]</h1>
+                <p>Computer Science Student @ Khon Kaen University<br>
+                   "[ระบุ Personal Motto หรือคำแนะนำตัวสั้น ๆ เช่น มุ่งมั่นพัฒนาตนเองสู่การเป็น Full-stack Developer]"</p>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn btn-primary">เกี่ยวกับฉัน</a>
+                    <a href="#projects" class="btn btn-outline">ดูผลงาน</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-placeholder">
+                    [ใส่รูปโปรไฟล์ของคุณที่นี่]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUICK MENU -->
+    <div class="quick-menu">
+        <div class="container quick-menu-grid">
+            <a href="#about" class="quick-card">
+                <i class="fas fa-user"></i>
+                <span>ข้อมูลส่วนตัว</span>
+            </a>
+            <a href="#education" class="quick-card">
+                <i class="fas fa-graduation-cap"></i>
+                <span>การศึกษา</span>
+            </a>
+            <a href="#skills" class="quick-card">
+                <i class="fas fa-laptop-code"></i>
+                <span>ทักษะ</span>
+            </a>
+            <a href="#academic" class="quick-card">
+                <i class="fas fa-chart-line"></i>
+                <span>ผลการเรียน</span>
+            </a>
+            <a href="#experience" class="quick-card">
+                <i class="fas fa-briefcase"></i>
+                <span>ประสบการณ์</span>
+            </a>
+            <a href="#activities" class="quick-card">
+                <i class="fas fa-university"></i>
+                <span>กิจกรรม</span>
+            </a>
+            <a href="#projects" class="quick-card">
+                <i class="fas fa-rocket"></i>
+                <span>ผลงาน</span>
+            </a>
+            <a href="#certificates" class="quick-card">
+                <i class="fas fa-certificate"></i>
+                <span>ใบประกาศ</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- ABOUT ME -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="image-placeholder" style="width: 100%; height: auto; min-height: 300px;">
+                    [รูปถ่ายครึ่งตัวแบบทางการ/มืออาชีพ]
+                </div>
+                <div class="about-info">
+                    <div class="about-info-list">
+                        <div class="info-item">
+                            <h4>ชื่อ-นามสกุล</h4>
+                            <p>[ระบุชื่อ-นามสกุล]</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>ชื่อเล่น</h4>
+                            <p>[ระบุชื่อเล่น]</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>อายุ</h4>
+                            <p>[ระบุอายุ] ปี</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>ระดับการศึกษา</h4>
+                            <p>ปริญญาตรี ชั้นปีที่ [ระบุชั้นปี]</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>สาขาวิชา</h4>
+                            <p>วิทยาการคอมพิวเตอร์ (Computer Science)</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>มหาวิทยาลัย</h4>
+                            <p>มหาวิทยาลัยขอนแก่น</p>
+                        </div>
+                    </div>
+                    <hr style="margin: 20px 0; border: 0; border-top: 1px solid var(--border-color);">
+                    <div class="about-info-list">
+                        <div class="info-item">
+                            <h4>ความสนใจ (Interests)</h4>
+                            <p>[ระบุเช่น Web Development, AI, Data Science]</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>เป้าหมายในอนาคต</h4>
+                            <p>[ระบุเป้าหมายอาชีพ]</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>งานอดิเรก</h4>
+                            <p>[ระบุงานอดิเรก]</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>สิ่งที่กำลังพัฒนาตัวเอง</h4>
+                            <p>[ระบุทักษะที่กำลังเรียนรู้]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">[ระบุปี พ.ศ. ปัจจุบัน] - ปัจจุบัน</div>
+                        <h3>มหาวิทยาลัยขอนแก่น</h3>
+                        <p>วิทยาศาสตรบัณฑิต สาขาวิชาวิทยาการคอมพิวเตอร์ (ชั้นปีที่ [ระบุ])</p>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 10px;">
+                            <strong>รายวิชาที่สนใจ:</strong> [ระบุวิชา เช่น Data Structures, Web Engineering, Machine Learning]
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">[ระบุปี พ.ศ. ที่จบ]</div>
+                        <h3>[ระบุชื่อโรงเรียนมัธยมปลาย]</h3>
+                        <p>มัธยมศึกษาตอนปลาย สายวิทย์-คณิต</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">[ระบุปี พ.ศ. ที่จบ]</div>
+                        <h3>[ระบุชื่อโรงเรียนมัธยมต้น]</h3>
+                        <p>มัธยมศึกษาตอนต้น</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACADEMIC PERFORMANCE -->
+    <section id="academic" class="academic">
+        <div class="container">
+            <h2 class="section-title">Academic Performance</h2>
+            <div class="gpa-card">
+                <h3>เกรดเฉลี่ยสะสม (GPAX)</h3>
+                <div class="gpa-score">[ระบุ GPA]</div>
+                <p>ผลการเรียนโดดเด่นในกลุ่มวิชา: [ระบุเช่น Programming, Database]</p>
+            </div>
+            <div class="chart-placeholder">
+                [พื้นที่สำหรับแสดงกราฟ GPA รายภาคการศึกษา (GPA Chart)]<br>
+                (สามารถใช้ Chart.js หรือแนบรูปภาพกราฟได้)
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-grid">
+                
+                <!-- Category 1 -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Python</span>
+                            <span>Advanced</span>
+                        </div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Java</span>
+                            <span>Intermediate</span>
+                        </div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 70%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>C++ / C</span>
+                            <span>Intermediate</span>
+                        </div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 65%;"></div></div>
+                    </div>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-globe"></i> Web Development</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>HTML / CSS</span>
+                            <span>Advanced</span>
+                        </div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>JavaScript / React</span>
+                            <span>Intermediate</span>
+                        </div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 75%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Node.js / Express</span>
+                            <span>Beginner</span>
+                        </div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 40%;"></div></div>
+                    </div>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Database & Tools</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>SQL / MySQL</span>
+                            <span>Intermediate</span>
+                        </div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 70%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Git / GitHub</span>
+                            <span>Intermediate</span>
+                        </div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 80%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Figma (UX/UI)</span>
+                            <span>Beginner</span>
+                        </div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 50%;"></div></div>
+                    </div>
+                </div>
+
+                <!-- Category 4 -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-users"></i> Soft Skills</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Teamwork & Collaboration</span>
+                            <span>Excellent</span>
+                        </div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 95%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Problem Solving</span>
+                            <span>Good</span>
+                        </div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE (ถ้ามี) -->
+    <section id="experience" class="academic">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="card-grid">
+                <div class="content-card">
+                    <div class="card-body">
+                        <h3 class="card-title">[ระบุชื่อตำแหน่ง / หน้าที่]</h3>
+                        <p style="color: var(--primary-color); font-weight: 500; margin-bottom: 10px;">[สถานที่ / องค์กร]</p>
+                        <p class="timeline-date">[เดือน ปี - เดือน ปี]</p>
+                        <p>[อธิบายรายละเอียดหน้าที่และสิ่งที่ได้รับจากประสบการณ์นี้สั้น ๆ]</p>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <div class="card-body">
+                        <h3 class="card-title">[ระบุชื่อตำแหน่ง / หน้าที่]</h3>
+                        <p style="color: var(--primary-color); font-weight: 500; margin-bottom: 10px;">[สถานที่ / องค์กร]</p>
+                        <p class="timeline-date">[เดือน ปี - เดือน ปี]</p>
+                        <p>[อธิบายรายละเอียดหน้าที่และสิ่งที่ได้รับจากประสบการณ์นี้สั้น ๆ]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNIVERSITY ACTIVITIES -->
+    <section id="activities">
+        <div class="container">
+            <h2 class="section-title">University Activities</h2>
+            <div class="filter-container">
+                <button class="btn btn-primary">ทั้งหมด</button>
+                <button class="btn btn-outline">วิชาการ</button>
+                <button class="btn btn-outline">กิจกรรมชมรม</button>
+                <button class="btn btn-outline">จิตอาสา</button>
+            </div>
+            <div class="card-grid">
+                <!-- Activity 1 -->
+                <div class="content-card">
+                    <div class="card-img-placeholder">[รูปกิจกรรม]</div>
+                    <div class="card-body">
+                        <h3 class="card-title">[ชื่อกิจกรรม 1]</h3>
+                        <p>[รายละเอียดบทบาทของคุณในกิจกรรมนี้]</p>
+                    </div>
+                </div>
+                <!-- Activity 2 -->
+                <div class="content-card">
+                    <div class="card-img-placeholder">[รูปกิจกรรม]</div>
+                    <div class="card-body">
+                        <h3 class="card-title">[ชื่อกิจกรรม 2]</h3>
+                        <p>[รายละเอียดบทบาทของคุณในกิจกรรมนี้]</p>
+                    </div>
+                </div>
+                <!-- Activity 3 -->
+                <div class="content-card">
+                    <div class="card-img-placeholder">[รูปกิจกรรม]</div>
+                    <div class="card-body">
+                        <h3 class="card-title">[ชื่อกิจกรรม 3]</h3>
+                        <p>[รายละเอียดบทบาทของคุณในกิจกรรมนี้]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="academic">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="card-grid">
+                
+                <!-- Project 1 -->
+                <div class="content-card">
+                    <div class="card-img-placeholder">[รูป/ตัวอย่าง Project]</div>
+                    <div class="card-body">
+                        <h3 class="card-title">[ชื่อ Project 1]</h3>
+                        <div class="tech-stack">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <p><strong>ปัญหา:</strong> [ปัญหาที่ต้องการแก้]</p>
+                        <p><strong>หน้าที่:</strong> [หน้าที่ของคุณ เช่น Frontend Dev]</p>
+                        <p><strong>ผลลัพธ์:</strong> [ผลลัพธ์ที่ได้]</p>
+                        <button class="btn btn-outline" style="margin-top: 15px; width: 100%;">ดูรายละเอียดเพิ่มเติม</button>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="content-card">
+                    <div class="card-img-placeholder">[รูป/ตัวอย่าง Project]</div>
+                    <div class="card-body">
+                        <h3 class="card-title">[ชื่อ Project 2]</h3>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Scikit-Learn</span>
+                        </div>
+                        <p><strong>ปัญหา:</strong> [ปัญหาที่ต้องการแก้]</p>
+                        <p><strong>หน้าที่:</strong> [หน้าที่ของคุณ เช่น Data Analyst]</p>
+                        <p><strong>ผลลัพธ์:</strong> [ผลลัพธ์ที่ได้]</p>
+                        <button class="btn btn-outline" style="margin-top: 15px; width: 100%;">ดูรายละเอียดเพิ่มเติม</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATES -->
+    <section id="certificates">
+        <div class="container">
+            <h2 class="section-title">Certificates & Awards</h2>
+            <div class="card-grid">
+                <div class="content-card">
+                    <div class="card-img-placeholder">[รูปภาพใบประกาศ]</div>
+                    <div class="card-body" style="text-align: center;">
+                        <h3 class="card-title">[ชื่อใบประกาศ / รางวัล]</h3>
+                        <p>[องค์กรที่มอบให้]</p>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <div class="card-img-placeholder">[รูปภาพใบประกาศ]</div>
+                    <div class="card-body" style="text-align: center;">
+                        <h3 class="card-title">[ชื่อใบประกาศ / รางวัล]</h3>
+                        <p>[องค์กรที่มอบให้]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GOALS -->
+    <section id="goals" class="goals-section">
+        <div class="container">
+            <h2 class="section-title">Goals & Vision</h2>
+            <div class="goals-grid">
+                <div class="goal-box">
+                    <h3><i class="fas fa-bullseye"></i> Short-term Goals (เป้าหมายระยะสั้น)</h3>
+                    <ul>
+                        <li>[ระบุ เช่น พัฒนาทักษะ React ให้สามารถสร้าง Web App ได้]</li>
+                        <li>[ระบุ เช่น หาที่ฝึกงานในบริษัท Tech ชั้นนำ]</li>
+                        <li>[ระบุ เช่น สอบผ่าน Certificate ที่เกี่ยวข้อง]</li>
+                    </ul>
+                </div>
+                <div class="goal-box">
+                    <h3><i class="fas fa-route"></i> Long-term Goals (เป้าหมายระยะยาว)</h3>
+                    <ul>
+                        <li>[ระบุ เช่น เป็น Full-stack Developer ระดับ Senior]</li>
+                        <li>[ระบุ เช่น ทำงานในองค์กรระดับ Global]</li>
+                        <li>[ระบุ เช่น นำความรู้ Tech มาสร้างธุรกิจของตัวเอง]</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="academic">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-grid">
+                <a href="mailto:[ระบุอีเมล]" class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h4>Email</h4>
+                    <p>[ระบุ Email]</p>
+                </a>
+                <a href="[ระบุลิงก์ LinkedIn]" target="_blank" class="contact-card">
+                    <i class="fab fa-linkedin"></i>
+                    <h4>LinkedIn</h4>
+                    <p>[ระบุชื่อ LinkedIn]</p>
+                </a>
+                <a href="[ระบุลิงก์ GitHub]" target="_blank" class="contact-card">
+                    <i class="fab fa-github"></i>
+                    <h4>GitHub</h4>
+                    <p>[ระบุ Username]</p>
+                </a>
+                <a href="[ระบุลิงก์ Facebook/IG]" target="_blank" class="contact-card">
+                    <i class="fab fa-facebook"></i>
+                    <h4>Social Media</h4>
+                    <p>[ระบุชื่อบัญชี]</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- DARK GREEN FOOTER -->
+    <footer>
+        <div class="container">
+            <h2>[ระบุชื่อ-นามสกุล]</h2>
+            <p>Computer Science Student | Khon Kaen University</p>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: #a8d5ba;">
+                &copy; 2026 Personal Portfolio. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript สำหรับ Mobile Menu -->
+    <script>
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburgerBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // ซ่อนเมนูเมื่อกดเลือกเมนู (สำหรับ Mobile)
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
